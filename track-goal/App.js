@@ -37,11 +37,10 @@ export default function App() {
             ))}
       </View> */}
 
-      // ScrollView - make things scrollable
-      // but it needs its parent to control the area it will take the height for the whole screen for that View.
-      // The outer View controls how much space the area of the screen will take up.
-      // The inner ScrollView makes sure the items in that space to be scrollable if they exceed the space.
-      <View style={styles.goalsContainerView}>
+      {/* ScrollView - make things scrollable */}
+      {/* but it needs its parent to control the area it will take the height for the whole screen for that View. */}
+      {/* The outer View controls how much space the area of the screen will take up. */}
+      {/* The inner ScrollView makes sure the items in that space to be scrollable if they exceed the space. */}      <View style={styles.goalsContainerView}>
         <ScrollView alwaysBounceHorizontal={false}>
               {courseGoals.map((goal) => (
                 <View key={goal}>
