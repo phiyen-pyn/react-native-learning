@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View, Button, Text } from 'react-native';
+import { StyleSheet, TextInput, View, Button, Text, ScrollView } from 'react-native';
 import { useState } from 'react';
 
 export default function App() {
@@ -27,11 +27,28 @@ export default function App() {
           />
         <Button style={styles.button} title="Add Goal" onPress={addGoalHandler} />
       </View>
-      <View style={styles.goalsContainer}>
-        <Text style={styles.goalsTitle}>List of Goals</Text>
+
+      <Text style={styles.goalsTitle}>List of Goals</Text>
+
+      // Normal View - not scrollable
+      {/* <View style={styles.goalsContainer}>
             {courseGoals.map((goal) => (
               <Text style={styles.goalItem} key={goal}>{goal}</Text>
             ))}
+      </View> */}
+
+      // ScrollView - make things scrollable
+      // but it needs its parent to control the area it will take the height for the whole screen for that View.
+      // The outer View controls how much space the area of the screen will take up.
+      // The inner ScrollView makes sure the items in that space to be scrollable if they exceed the space.
+      <View style={styles.goalsContainerView}>
+        <ScrollView alwaysBounceHorizontal={false}>
+              {courseGoals.map((goal) => (
+                <View key={goal}>
+                  <Text style={styles.goalItem}>{goal}</Text>
+                </View>
+              ))}
+        </ScrollView>
       </View>
     </View>
   )
@@ -77,4 +94,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     fontSize: 16,
   },
+  goalsContainerView: {
+    flex: 5,
+  }
 });
