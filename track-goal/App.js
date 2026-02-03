@@ -22,6 +22,7 @@ export default function App() {
       {text: enteredGoalText, id: Math.random().toString()} /* id is the unique key for each item. */
       /* Course goals is now an array of objects that each object has a text property and an id property. */
     ]);
+    endAddGoalHandler();
   }
 
   function deleteGoalHandler(id) {
@@ -46,7 +47,7 @@ export default function App() {
         <Button title="Add New Goal" color="#5e84d5" onPress={startAddGoalHandler} />
       </View>
       {/* {modalIsVisible == true && <GoalInput onAddGoal={addGoalHandler} /> } */}
-      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} />
+      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endAddGoalHandler} />
 
       {/* // Normal View - not scrollable */}
       {/* <View style={styles.goalsContainer}>
