@@ -30,12 +30,13 @@ export default GoalItem;
 const styles = StyleSheet.create({
   goalItem: {
     marginVertical: 4,
-    backgroundColor: "#e4e4e4",
+    backgroundColor: "#4e7bb6",
     borderRadius: 4,
     overflow: 'hidden'
   },
   goalText: {
-    padding: 8
+    padding: 8,
+    color: 'white'
   },
   pressedItem: {
     opacity: 0.5
