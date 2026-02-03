@@ -5,8 +5,16 @@ import GoalInput from './components/GoalInput';
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
+  const [modalIsVisible, setModalIsVisible] = useState(false);
 
-  {/*  */}
+  function startAddGoalHandler() {
+    setModalIsVisible(true);
+  }
+  
+  function endAddGoalHandler() {
+    setModalIsVisible(false);
+  }
+
   function addGoalHandler(enteredGoalText) {
     setCourseGoals((currentCourseGoals) => [
       ...currentCourseGoals,
@@ -31,11 +39,12 @@ export default function App() {
     });
   }
 
+
   return (
     <View style = {styles.appContainer}>
-      <GoalInput onAddGoal={addGoalHandler} />
-
-      <Text style={styles.goalsTitle}>List of Goals</Text>
+      <Button title="Add New Goal" color="#5e84d5" onPress={startAddGoalHandler} />
+      {/* {modalIsVisible == true && <GoalInput onAddGoal={addGoalHandler} /> } */}
+      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} />
 
       {/* // Normal View - not scrollable */}
       {/* <View style={styles.goalsContainer}>
