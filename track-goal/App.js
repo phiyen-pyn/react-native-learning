@@ -42,7 +42,9 @@ export default function App() {
 
   return (
     <View style = {styles.appContainer}>
-      <Button title="Add New Goal" color="#5e84d5" onPress={startAddGoalHandler} />
+      <View style={styles.buttonStyleContainer}>
+        <Button title="Add New Goal" color="#5e84d5" onPress={startAddGoalHandler} />
+      </View>
       {/* {modalIsVisible == true && <GoalInput onAddGoal={addGoalHandler} /> } */}
       <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} />
 
@@ -122,5 +124,11 @@ const styles = StyleSheet.create({
   },
   goalsContainerView: {
     flex: 5,
+  },
+  buttonStyleContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 400
   }
 });
